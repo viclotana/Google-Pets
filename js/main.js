@@ -13,6 +13,8 @@ function fetchAnimals(e){
     const zip = document.querySelector('#zip').value;
 
     //fetch pets
-    fetchJsonp(`http:`)
+    fetchJsonp(`http:api.petfinder.com/pet.find?format=json&
+    key=c8385efd2750152ae8f7cc9bca83a805&animal=${animal}&location=${zip}&
+    callback=callback`)
 
 }
