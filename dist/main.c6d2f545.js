@@ -104,7 +104,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({5:[function(require,module,exports) {
-
+console.log('lalala');
 },{}],6:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -276,3 +276,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},[6,5], null)
+//# sourceMappingURL=/main.c6d2f545.map
