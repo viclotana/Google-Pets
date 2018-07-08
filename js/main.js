@@ -38,7 +38,7 @@ function showAnimals(pets) {
             <p>${pet.contact.address1.$t} ${pet.contact.city.$t}
             ${pet.contact.zip.$t}</p>
             <ul class="list-group">
-            <li class="list-group-item">Phone: ${pet.contact.phone}</li>
+            <li class="list-group-item">Phone: ${pet.contact.phone.$t}</li>
             </ul>
           </div>
         </div>
