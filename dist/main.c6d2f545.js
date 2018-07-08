@@ -251,14 +251,25 @@ function fetchAnimals(e) {
     var zip = document.querySelector('#zip').value;
 
     //fetch pets
-    (0, _fetchJsonp2.default)('http:api.petfinder.com/pet.find?format=json&\n    key=c8385efd2750152ae8f7cc9bca83a805&animal=' + animal + '&location=' + zip + '&callback=callback', {
+    (0, _fetchJsonp2.default)('http://api.petfinder.com/pet.find?format=json&key=c8385efd2750152ae8f7cc9bca83a805&animal=' + animal + '&location=' + zip + '&callback=callback', {
         jsonpCallbackFunction: 'callback'
     }).then(function (res) {
         return res.json();
     }).then(function (data) {
-        return console.log(data);
+        return showAnimals(data.petfinder.pets.pet);
     }).catch(function (err) {
         return console.log(err);
+    });
+}
+
+// show pet listings
+function showAnimals(pets) {
+    var results = document.querySelector('#results');
+
+    results.innerHTML = '';
+
+    pets.forEach(function (pet) {
+        var div = document.createElement('div');
     });
 }
 },{"fetch-jsonp":7}],6:[function(require,module,exports) {
