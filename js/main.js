@@ -14,9 +14,9 @@ function fetchAnimals(e){
 
     //fetch pets
     fetchJsonp(`http:api.petfinder.com/pet.find?format=json&
-    key=c8385efd2750152ae8f7cc9bca83a805&animal=${animal}&location=${zip}&
-    callback=callback`, {
+    key=c8385efd2750152ae8f7cc9bca83a805&animal=${animal}&location=${zip}&callback=callback`, {
         jsonpCallbackFunction: 'callback'
-    })
-
+    }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
 }
