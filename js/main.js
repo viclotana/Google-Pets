@@ -41,6 +41,9 @@ function showAnimals(pets) {
             <li class="list-group-item">Phone: ${pet.contact.phone.$t}</li>
             </ul>
           </div>
+          <div class="col-sm-6 text-center">
+            <img class="img-fluid rounded-circle mt-2" src="${pet.media.photos.photo[3].$t}">
+          </div>
         </div>
       `;
       results.appendChild(div);
