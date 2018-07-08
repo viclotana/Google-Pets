@@ -229,12 +229,37 @@ var global = arguments[3];
 
   module.exports = fetchJsonp;
 });
+},{}],7:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.isValidZip = isValidZip;
+exports.showAlert = showAlert;
+// validate zipcode
+function isValidZip(zip) {
+    return (/^\d{5}(-\d{4})?$/.test(zip)
+    );
+}
+
+// display alert msg
+function showAlert(message, className) {
+    // Create div
+    var div = document.createElement('div');
+    // add classes
+    div.className = 'alert alert-' + className;
+    //add text
+    div.appendChild(document.createTextNode(message));
+}
 },{}],5:[function(require,module,exports) {
 'use strict';
 
 var _fetchJsonp = require('fetch-jsonp');
 
 var _fetchJsonp2 = _interopRequireDefault(_fetchJsonp);
+
+var _validate = require('./validate');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -249,6 +274,12 @@ function fetchAnimals(e) {
   //get user input
   var animal = document.querySelector('#animal').value;
   var zip = document.querySelector('#zip').value;
+
+  // validate zipcode
+  if (!(0, _validate.isValidZip)(zip)) {
+    alert('abeg abeg enter this thing');
+    return;
+  }
 
   //fetch pets
   (0, _fetchJsonp2.default)('http://api.petfinder.com/pet.find?format=json&key=c8385efd2750152ae8f7cc9bca83a805&animal=' + animal + '&location=' + zip + '&callback=callback', {
@@ -276,7 +307,7 @@ function showAnimals(pets) {
     results.appendChild(div);
   });
 }
-},{"fetch-jsonp":7}],4:[function(require,module,exports) {
+},{"fetch-jsonp":7,"./validate":7}],4:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
