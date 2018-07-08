@@ -34,7 +34,12 @@ function showAnimals(pets) {
         <div class="row">
           <div class="col-sm-6">
             <h4>${pet.name.$t} (${pet.age.$t})</h4>
-            <p></
+            <p class="text-secondary">${pet.breeds.breed.$t}</p>
+            <p>${pet.contact.address1.$t} ${pet.contact.city.$t}
+            ${pet.contact.zip.$t}</p>
+            <ul class="list-group">
+            <li class="list-group-item">Phone: ${pet.contact.phone}</li>
+            </ul>
           </div>
         </div>
       `;

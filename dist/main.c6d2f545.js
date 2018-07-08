@@ -272,7 +272,7 @@ function showAnimals(pets) {
     console.log(pet);
     var div = document.createElement('div');
     div.classList.add('card', 'card-body', 'mb-3');
-    div.innerHTML = '\n        <div class="row">\n          <div class="col-sm-6">\n            <h4>' + pet.name.$t + ' (' + pet.age.$t + ')</h4>\n            <p></\n          </div>\n        </div>\n      ';
+    div.innerHTML = '\n        <div class="row">\n          <div class="col-sm-6">\n            <h4>' + pet.name.$t + ' (' + pet.age.$t + ')</h4>\n            <p class="text-secondary">' + pet.breeds.breed.$t + '</p>\n            <p>' + pet.contact.address1.$t + ' ' + pet.contact.city.$t + '\n            ' + pet.contact.zip.$t + '</p>\n            <ul class="list-group">\n            <li class="list-group-item">Phone: ' + pet.contact.phone + '</li>\n            </ul>\n          </div>\n        </div>\n      ';
     results.appendChild(div);
   });
 }
