@@ -244,33 +244,37 @@ petForm.addEventListener('submit', fetchAnimals);
 
 //fetch animals from api
 function fetchAnimals(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    //get user input
-    var animal = document.querySelector('#animal').value;
-    var zip = document.querySelector('#zip').value;
+  //get user input
+  var animal = document.querySelector('#animal').value;
+  var zip = document.querySelector('#zip').value;
 
-    //fetch pets
-    (0, _fetchJsonp2.default)('http://api.petfinder.com/pet.find?format=json&key=c8385efd2750152ae8f7cc9bca83a805&animal=' + animal + '&location=' + zip + '&callback=callback', {
-        jsonpCallbackFunction: 'callback'
-    }).then(function (res) {
-        return res.json();
-    }).then(function (data) {
-        return showAnimals(data.petfinder.pets.pet);
-    }).catch(function (err) {
-        return console.log(err);
-    });
+  //fetch pets
+  (0, _fetchJsonp2.default)('http://api.petfinder.com/pet.find?format=json&key=c8385efd2750152ae8f7cc9bca83a805&animal=' + animal + '&location=' + zip + '&callback=callback', {
+    jsonpCallbackFunction: 'callback'
+  }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return showAnimals(data.petfinder.pets.pet);
+  }).catch(function (err) {
+    return console.log(err);
+  });
 }
 
 // show pet listings
 function showAnimals(pets) {
-    var results = document.querySelector('#results');
+  var results = document.querySelector('#results');
 
-    results.innerHTML = '';
+  results.innerHTML = '';
 
-    pets.forEach(function (pet) {
-        var div = document.createElement('div');
-    });
+  pets.forEach(function (pet) {
+    console.log(pet);
+    var div = document.createElement('div');
+    div.classList.add('card', 'card-body', 'mb-3');
+    div.innerHTML = '\n        <div class="row">\n          <div class="col-sm-6">\n            <h4>' + pet.name.$t + ' (' + pet.age.$t + ')</h4>\n          </div>\n        </div>\n      ';
+    results.appendChild(div);
+  });
 }
 },{"fetch-jsonp":7}],6:[function(require,module,exports) {
 var global = arguments[3];

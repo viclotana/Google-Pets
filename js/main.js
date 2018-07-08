@@ -27,7 +27,18 @@ function showAnimals(pets) {
   results.innerHTML = '';
 
   pets.forEach(pet => {
+      console.log(pet);
       const div = document.createElement('div');
-      
+      div.classList.add('card', 'card-body', 'mb-3');
+      div.innerHTML =`
+        <div class="row">
+          <div class="col-sm-6">
+            <h4>${pet.name.$t} (${pet.age.$t})</h4>
+          </div>
+        </div>
+      `;
+      results.appendChild(div);
+
+
   });
 }
