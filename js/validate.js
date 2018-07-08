@@ -11,4 +11,14 @@ export function showAlert(message, className){
     div.className = `alert alert-${className}`;
     //add text
     div.appendChild(document.createTextNode(message));
+    // since we are adding the alert between container and form 
+    // lets get the 2 and insertBefore
+    // get container
+    const container = document.querySelector('.container');
+    // get form
+    const form = document.querySelector('#pet-form');
+    // insert alert
+    container.insertBefore(div, form);
+
+    setTimeout(() => document.querySelector('.alert').remove(),3000);
 }

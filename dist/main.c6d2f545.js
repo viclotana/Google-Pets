@@ -251,6 +251,18 @@ function showAlert(message, className) {
     div.className = 'alert alert-' + className;
     //add text
     div.appendChild(document.createTextNode(message));
+    // since we are adding the alert between container and form 
+    // lets get the 2 and insertBefore
+    // get container
+    var container = document.querySelector('.container');
+    // get form
+    var form = document.querySelector('#pet-form');
+    // insert alert
+    container.insertBefore(div, form);
+
+    setTimeout(function () {
+        return document.querySelector('.alert').remove();
+    }, 3000);
 }
 },{}],5:[function(require,module,exports) {
 'use strict';
@@ -277,7 +289,7 @@ function fetchAnimals(e) {
 
   // validate zipcode
   if (!(0, _validate.isValidZip)(zip)) {
-    alert('abeg abeg enter this thing');
+    (0, _validate.showAlert)('abeg abeg enter correct zipcode', 'danger');
     return;
   }
 
