@@ -34,6 +34,7 @@ function showAnimals(pets) {
         <div class="row">
           <div class="col-sm-6">
             <h4>${pet.name.$t} (${pet.age.$t})</h4>
+            <p></
           </div>
         </div>
       `;
